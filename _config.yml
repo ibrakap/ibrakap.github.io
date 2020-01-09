@@ -3,6 +3,7 @@ url: "https://ibrakap.github.io/"
 
 # Build settings
 markdown: kramdown
+theme: jekyll-theme-console
 remote_theme: b2a3e8/jekyll-theme-console
 
 header_pages:
