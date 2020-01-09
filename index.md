@@ -1,3 +1,5 @@
 ---
+permalink: /
+title: /
 layout: home
 ---
