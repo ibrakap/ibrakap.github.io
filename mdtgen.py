@@ -1,6 +1,9 @@
+#!/usr/bin/python3
 # simple markdown post template generator
 import sys
 from datetime import datetime
+
+post_directory = "_posts/"
 
 def get_name_of_article(argument, char):
     argument_o = ""
@@ -14,15 +17,17 @@ def get_name_of_article(argument, char):
 
 
 
-name_of_file = str(datetime.today().strftime('%Y-%m-%d')) + "-" + get_name_of_article(sys.argv,"_") + ".md"
-
-with open(name_of_file, "w") as stream:
-    stream.write("---")
-    stream.write("\nlayout: post")
-    stream.write(f"\ntitle: \"{get_name_of_article(sys.argv,' ')}\"")
-    stream.write(f"\ndate: {str(datetime.today().strftime('%Y-%m-%d'))}")
-    stream.write("\ncategories:")
-    stream.write("\n---")
-    stream.close()
-
+name_of_file = str(datetime.today().strftime('%Y-%m-%d')) + "-" + get_name_of_article(sys.argv,"-") + ".md"
+try:
+    with open(post_directory+name_of_file, "w") as stream:
+        stream.write("---")
+        stream.write("\nlayout: post")
+        stream.write(f"\ntitle: \"{get_name_of_article(sys.argv,' ')}\"")
+        stream.write(f"\ndate: {str(datetime.today().strftime('%Y-%m-%d'))}")
+        stream.write("\ncategories:")
+        stream.write("\n---")
+        stream.close()
+        print("[+]Post generated")
+except:
+    print("[-]An error occured")
 # print(get_name_of_article(sys.argv,"_"))
